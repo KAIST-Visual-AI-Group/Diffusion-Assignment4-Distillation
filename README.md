@@ -54,7 +54,7 @@ pip install torch==2.1.0 torchvision==0.16.0 torchaudio==2.1.0 --index-url https
 ## Task 0: Introduction
 Distillation sampling parameterizes the target content (e.g., images) and optimizes the parameters using the gradient of the distillation loss function $\nabla_{x^0} L$. In this assignment, we denote $`c`$ as a text prompt, $`\mathbf{x^{t}}`$ as a noisy sample, $`\epsilon`$ as a random sample from a standard Gaussian distribution, and $`\epsilon_\theta(\cdot, \cdot, \cdot)`$ as a pretrained diffusion model that predicts the noise in the input. In the image editing task, $`\mathbf{x_{src}^{t}}`$ and $`\mathbf{x_{src}^{t}}`$ are used to denote the source and target samples, while $`c_{src}`$ and $`c_{tgt}`$ represent the source and target text prompts, respectively.
 
-We provide text prompts and source images for generating and editing images. For inference, use the `data/prompt_img_pairs.json`, which contains test prompts and source images. For each task, implement the loss function in `guidance/sd.py`. Use a fixed guidance scale for each task: 25 for SDS and 7.5 for DDS and PDS.
+We provide text prompts and source images for generating and editing images. Change the `$HOME` prefix in image paths to your directory. For inference, use the `data/prompt_img_pairs.json`, which contains test prompts and source images. For each task, implement the loss function in `guidance/sd.py`. Use a fixed guidance scale for each task: 25 for SDS and 7.5 for DDS and PDS.
 
 ## Task 1: Score Distillation Sampling (SDS)
 
