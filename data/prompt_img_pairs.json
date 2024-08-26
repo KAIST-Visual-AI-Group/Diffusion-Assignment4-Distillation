@@ -1,0 +1,53 @@
+{
+
+    "A_red_bus_driving_on_a_desert_road": {
+        "prompt": "A red bus driving on a desert road",
+        "edit_prompt": "A yellow school bus driving on a desert road",
+        "img_path": "/home/jh27kim/code/current_projects/cs492d/week6/data/imgs/A_red_bus_driving_on_a_desert_road.png"
+    },
+    "a_boat_in_a_river": {
+        "prompt": "a boat in a river",
+        "edit_prompt": "a golden boat in a river",
+        "img_path": "/home/jh27kim/code/current_projects/cs492d/week6/data/imgs/a_boat_in_a_river.png"
+    },
+    "A_cabin_surrounded_by_forests": {
+        "prompt": "A cabin surrounded by forests",
+        "edit_prompt": "A cabin surrounded by flowers",
+        "img_path": "/home/jh27kim/code/current_projects/cs492d/week6/data/imgs/A_cabin_surrounded_by_forests.png"
+    },
+    "A_church_beside_a_lake": {
+        "prompt": "A church beside a lake",
+        "edit_prompt": "A church beside a lake at night",
+        "img_path": "/home/jh27kim/code/current_projects/cs492d/week6/data/imgs/A_church_beside_a_lake.png"
+    },
+    "A_villa_close_to_the_pool": {
+        "prompt": "A villa close to the pool",
+        "edit_prompt": "A villa covered with ivy close to the pool",
+        "img_path": "/home/jh27kim/code/current_projects/cs492d/week6/data/imgs/A_villa_close_to_the_pool.png"
+    },
+    "A_castle_next_to_a_river": {
+        "prompt": "A castle next to a river",
+        "edit_prompt": "A rainbow castle next to a river",
+        "img_path": "/home/jh27kim/code/current_projects/cs492d/week6/data/imgs/A_castle_next_to_a_river.png"
+    },
+    "A_burger_on_the_table": {
+        "prompt": "A burger on the table",
+        "edit_prompt": "A burger with lettuce on the table",
+        "img_path": "/home/jh27kim/code/current_projects/cs492d/week6/data/imgs/A_burger_on_the_table.png"
+    },
+    "A_dog_sitting_on_grass": {
+        "prompt": "A dog sitting on grass",
+        "edit_prompt": "A golden retriever sitting on grass",
+        "img_path": "/home/jh27kim/code/current_projects/cs492d/week6/data/imgs/A_dog_sitting_on_grass.png"
+    },
+    "a_cat_sitting_on_a_table": {
+        "prompt": "a cat sitting on a table",
+        "edit_prompt": "a wooden cat statue sitting on a table",
+        "img_path": "/home/jh27kim/code/current_projects/cs492d/week6/data/imgs/a_cat_sitting_on_a_table.png"
+    },
+    "A_car_on_the_road": {
+        "prompt": "A car on the road",
+        "edit_prompt": "A yellow sportscar on the road",
+        "img_path": "/home/jh27kim/code/current_projects/cs492d/week6/data/imgs/A_car_on_the_road.png"
+    }
+}
