@@ -124,6 +124,10 @@ Refer to `data/prompt_img_pairs.json` for `prompt`, `edit_prompt`, and `src_img_
 
 ## (Optional) Task 3: Variational Score Distillation (VSD)
 
+<p align="center">
+<img width="768" alt="image" src="./asset/vsd.png">
+</p>
+
 Variational Score Distillation (VSD) in ProlificDreamer aims to improve the sampling quality of SDS by utilizing [LoRA](https://mhsung.github.io/kaist-cs492d-fall-2024/programming-assignments/) to mimic the noise prediction of a pre-trained diffusion model. Given the pretrained diffusion model and a LoRA module, denoted as $\phi$, VSD optimizes the following loss:
 
 $$
@@ -166,7 +170,7 @@ python eval.py --fdir1 {$FDIR}
 
 **Task 3**
 - [ ] CLIP score evaluation `eval.json` (output of `eval.py`)
-- [ ] Output results of edited images using the provided prompts and images
+- [ ] Output results of generated images using the provided prompts
 
 </details>
 
