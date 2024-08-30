@@ -46,7 +46,7 @@ pip install torch==2.1.0 torchvision==0.16.0 torchaudio==2.1.0 --index-url https
 │   └── prompt_img_pairs.json     <--- Metadata of text prompts and source images
 ├── eval.py                       <--- CLIP score evaluation code 
 ├── guidance
-│   └── sd.py                     <--- (TODO) Implement SDS, DDS, and PDS
+│   └── sd.py                     <--- (TODO) Implement SDS and PDS
 ├── main.py                       <--- Entry point
 └── utils.py                      <--- Utility functions 
 ```
@@ -122,7 +122,9 @@ python main.py --prompt "{$PROMPT}" --loss_type pds --guidance_scale 7.5 --edit_
 
 Refer to `data/prompt_img_pairs.json` for `prompt`, `edit_prompt`, and `src_img_path`. Implement `get_pds_loss()` in `guidance/sd.py`. Note that $`\tilde{z}^t (x_{src}^0, c_{src}, \epsilon_\theta)`$ and $`\tilde{z}^t(x_{tgt}^0, c_{tgt}, \epsilon_\theta)`$ share the same noises $`\epsilon^t`$ and $`\epsilon^{t-1}`$ when computing $`x^{t}`$ and $`x^{t-1}`$.
 
-## (Optional) Task 3: Variational Score Distillation
+## (Optional) Task 3: Variational Score Distillation (VSD)
+
+Variational Score Distillation (VSD) in ProlificDreamer aims to improve the sampling quality of SDS by utilizing [LoRA](https://mhsung.github.io/kaist-cs492d-fall-2024/programming-assignments/) to mimic the noise prediction of a pre-trained diffusion model. Given the pretrained diffusion model and a LoRA module, denoted as $\phi$, VSD optimizes the following loss:
 
 $$
 \begin{align*} 
@@ -130,17 +132,9 @@ $$
 \end{align*}
 $$
 
-
-
 ### TODO
 
-To edit imges using DDS loss run the following command:
-
-```
-python main.py --prompt "{$PROMPT}" --loss_type dds --guidance_scale 7.5 --edit_prompt "{$EDIT_PROMPT}" --src_img_path {SRC_IMG_PATH}
-```
-
-Refer to `data/prompt_img_pairs.json` for `prompt`, `edit_prompt`, and `src_img_path`. Your task is to implement `get_dds_loss()` in `guidance/sd.py`. The function receives both latents $`x_{src}^{0}`$ and $`x_{tgt}^{0}`$, and both text embeddings $`c_{src}`$ and $`c_{tgt}`$.
+Generate images using the same text prompts provided in [Task 1](#task-1-score-distillation-sampling-sds). For VSD, use 7.5 for the guidance_scale.
 
 ## What to Submit
 
@@ -180,7 +174,7 @@ Submit a zip file named `{NAME}_{STUDENT_ID}.zip` containing the implemented cod
 Organize the generated and edited images as below and submit the zip file on GradeScope.
 ```
 ./outputs/
-├── dds
+├── pds
 │   ├── a_boat_in_a_frozen_river.png
 │   ├── A_cabin_surrounded_by_snowy_forests.png
 │   ├── A_cat_sitting_on_grass.png
@@ -191,10 +185,6 @@ Organize the generated and edited images as below and submit the zip file on Gra
 │   ├── A_red_sportscar_driving_on_a_desert_road.png
 │   ├── a_squirrel_sitting_on_a_table.png
 │   ├── A_toy_lego_castle_close_to_the_pool.png
-│   └── eval.json
-├── pds
-│   ...
-│   ├── A_cabin_surrounded_by_snowy_forests.png
 │   └── eval.json
 └── sds
     ...
@@ -220,7 +210,7 @@ CLIP Score | Points (Optional Task)
 
 #### Failing to reproduce the reported CLIP score will result in a score of zero.
 
-This assignment is heavily based on [DreamFusion](https://arxiv.org/abs/2209.14988), [DDS](https://arxiv.org/abs/2304.07090), and [PDS](https://arxiv.org/abs/2311.13831). You may refer to the repository while working on the tasks below. However, it is strictly forbidden to simply copy, reformat, or refactor the necessary codeblocks when making your submission. You must implement the functionalities on your own with clear understanding of how your code works. As noted in the course website, we will detect such cases with a specialized tool and plagiarism in any form will result in a zero score.
+This assignment is heavily based on [DreamFusion](https://arxiv.org/abs/2209.14988) and [PDS](https://arxiv.org/abs/2311.13831). You may refer to the repository while working on the tasks below. However, it is strictly forbidden to simply copy, reformat, or refactor the necessary codeblocks when making your submission. You must implement the functionalities on your own with clear understanding of how your code works. As noted in the course website, we will detect such cases with a specialized tool and plagiarism in any form will result in a zero score.
 
 #### Plagiarism in any form will also result in a zero score and will be reported to the university.
 
