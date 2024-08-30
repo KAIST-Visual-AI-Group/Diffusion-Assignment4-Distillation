@@ -23,7 +23,7 @@
 #### Where to Submit: GradeScope
 
 ## Description
-Score Distillation Sampling (SDS) is a technique used in generative models, particularly in the context of diffusion models. It leverages a pretrained model to guide the generation or editing of target samples by distilling the score (a measure of how well the sample aligns with the target distribution) back into the sampling process. Distillation sampling is particularly useful when pretrained diffusion models cannot directly generate target samples (e.g., 3D objects). In this programming assignment, we will begin with a simple application, 2D image generation using SDS and its variants. Unlike the reverse process of a diffusion model, distillation sampling parameterizes the target content (e.g., images) and optimizes the parameters based on a predefined loss function. Next, we will edit the given source images to align with target prompts using Delta Denoising Sampling (DDS) and Posterior Distillation Sampling (PDS). 
+Score Distillation Sampling (SDS) is a technique used in generative models, particularly in the context of diffusion models. It leverages a pretrained model to guide the generation or editing of target samples by distilling the score (a measure of how well the sample aligns with the target distribution) back into the sampling process. Distillation sampling is particularly useful when pretrained diffusion models cannot directly generate target samples (e.g., 3D objects). In this programming assignment, we will begin with a simple application, 2D image generation using SDS and its variants. Unlike the reverse process of a diffusion model, distillation sampling parameterizes the target content (e.g., images) and optimizes the parameters based on a predefined loss function. Next, we will edit the given source images to align with target prompts using Posterior Distillation Sampling (PDS). 
 
 ## Setup
 ```
@@ -214,13 +214,13 @@ You will receive a zero score if:
 
 **Your score will incur a 10% deduction for each missing item in the submission item list.**
 
-Each task is worth 10 points. 
+Task 1 and Task 2 are worth 10 points each, while Task 3 (Optional) is worth 5 points.
 
-CLIP Score | Points (/10)
+CLIP Score | Points (Optional Task)
 --- | ---
-0.27 ⬆️ | 10
-0.23 ⬆️ | 5
-0.21 ⬇️ | 0
+0.28 ⬆️ | 10 (5)
+0.26 ⬆️ | 5 (2.5)
+0.22 ⬇️ | 0 (0)
 
 #### Failing to reproduce the reported CLIP score will result in a score of zero.
 
