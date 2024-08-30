@@ -138,7 +138,7 @@ $$
 
 ### TODO
 
-Generate images using the same text prompts provided in [Task 1](#task-1-score-distillation-sampling-sds). For VSD, use 7.5 for the guidance_scale.
+Generate images using the same text prompts provided in [Task 1](#task-1-score-distillation-sampling-sds). For VSD, use 7.5 for the `guidance_scale`.
 
 ## What to Submit
 
