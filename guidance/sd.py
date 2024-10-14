@@ -1,12 +1,7 @@
-from transformers import CLIPTextModel, CLIPTokenizer, logging
-from diffusers import AutoencoderKL, UNet2DConditionModel, PNDMScheduler, DDIMScheduler, StableDiffusionPipeline
-from diffusers.utils.import_utils import is_xformers_available
-from os.path import isfile
-from pathlib import Path
+from diffusers import DDIMScheduler, StableDiffusionPipeline
 
 import torch
 import torch.nn as nn
-import torch.nn.functional as F
 
 
 class StableDiffusion(nn.Module):
