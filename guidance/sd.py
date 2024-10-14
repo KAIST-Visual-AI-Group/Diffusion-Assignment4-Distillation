@@ -73,17 +73,6 @@ class StableDiffusion(nn.Module):
         raise NotImplementedError("SDS is not implemented yet.")
     
     
-    def get_dds_loss(
-        self, src_latents, tgt_latents, 
-        src_text_embedding, tgt_text_embedding,
-        guidance_scale=7.5, 
-        grad_scale=1,
-    ):
-        
-        # TODO: Implement the loss function for DDS
-        raise NotImplementedError("DDS is not implemented yet.")
-    
-    
     def get_pds_loss(
         self, src_latents, tgt_latents, 
         src_text_embedding, tgt_text_embedding,
