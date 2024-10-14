@@ -135,7 +135,7 @@ if __name__ == "__main__":
     fdir1 = args.fdir1  # imgae directory 1
 
     prompt_view_pairs = defaultdict(list)
-    for img_path in glob.glob(f"{fdir1}/*"):
+    for img_path in glob.glob(f"{fdir1}/*.png"):
         fname = img_path.split("/")[-1].split(".")[0]
         prompt = fname
         prompt_key = prompt.replace(" ", "_")
