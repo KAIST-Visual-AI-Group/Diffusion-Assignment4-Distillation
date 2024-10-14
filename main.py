@@ -54,7 +54,7 @@ def run(args):
     uncond_embeddings = model.get_text_embeds(args.negative_prompt)
     text_embeddings = torch.cat([uncond_embeddings, cond_embeddings])
     
-    if args.loss_type in ["dds", "pds"]:
+    if args.loss_type in ["pds"]:
         src_img = Image.open(args.src_img_path).convert("RGB")
         src_img.save(os.path.join(args.save_dir, "src_img.png"))
         
@@ -91,12 +91,6 @@ def run(args):
                 latents=latents,
                 text_embeddings=text_embeddings, 
                 guidance_scale=guidance_scale,
-            )
-        elif args.loss_type == "dds":
-            loss = model.get_dds_loss(
-                src_latents=src_latents, tgt_latents=latents, 
-                src_text_embedding=text_embeddings, tgt_text_embedding=edit_embeddings,
-                guidance_scale=guidance_scale, 
             )
             
         elif args.loss_type == "pds":
@@ -154,8 +148,8 @@ def parse_args():
     
 def main():
     args = parse_args()
-    assert args.loss_type in ["sds", "dds", "pds"], "Invalid loss type"
-    if args.loss_type in ["dds", "pds"]:
+    assert args.loss_type in ["sds", "pds"], "Invalid loss type"
+    if args.loss_type in ["pds"]:
         assert args.edit_prompt is not None, f"edit_prompt is required for {args.loss_type}"
         assert args.src_img_path is not None, f"src_img_path is required for {args.loss_type}"
     
