@@ -166,7 +166,7 @@ python eval.py --fdir1 {$FDIR}
 - [ ] CLIP score evaluation `eval.json` (output of `eval.py`)
 - [ ] Output results of edited images using the provided prompts and images
 
-**Task 3**
+**Task 3 (Optional)**
 - [ ] CLIP score evaluation `eval.json` (output of `eval.py`)
 - [ ] Output results of generated images using the provided prompts
 
