@@ -208,7 +208,7 @@ CLIP Score | Points (Optional Task)
 --- | ---
 0.28 ⬆️ | 10 (5)
 0.26 ⬆️ | 5 (2.5)
-0.22 ⬇️ | 0 (0)
+0.26 ⬇️ | 0 (0)
 
 #### Failing to reproduce the reported CLIP score will result in a score of zero.
 
