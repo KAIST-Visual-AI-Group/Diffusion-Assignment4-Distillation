@@ -78,7 +78,7 @@ python main.py --prompt "{$PROMPT}" --loss_type sds --guidance_scale 25
 
 Refer to `data/prompt_img_pairs.json` for `prompt`.
 
-Implement `get_sds_loss()` in `guidance/sd.py`. The function receives the latent image $\mathbf{x^{t}}$, text embedding $c$, and optionally, `guidance_scale` used for the Classifier Free Guidance weight ([CFG](https://github.com/KAIST-Visual-AI-Group/CS492-Assignment_Diffusion-Models/blob/assn1_ddpm/README.md#forward-process)). The function should return the computed loss of SDS. 
+Implement `get_sds_loss()` in `guidance/sd.py`. The function receives the latent image $\mathbf{x^{0}}$, text embedding $c$, and optionally, `guidance_scale` used for the Classifier Free Guidance weight ([CFG](https://github.com/KAIST-Visual-AI-Group/CS492-Assignment_Diffusion-Models/blob/assn1_ddpm/README.md#forward-process)). The function should return the computed loss of SDS. 
 
 ## Task 2: Posterior Distillation Sampling (PDS)
 
