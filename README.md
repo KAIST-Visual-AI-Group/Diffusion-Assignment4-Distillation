@@ -50,7 +50,7 @@ pip install torch==2.1.0 torchvision==0.16.0 torchaudio==2.1.0 --index-url https
 ```
 
 ## Task 0: Introduction
-Distillation sampling parameterizes the target content (e.g., images) and optimizes the parameters using the gradient of the distillation loss function $\nabla_{x^0} L$. In this assignment, we denote $`c`$ as a text prompt, $`\mathbf{x^{t}}`$ as a noisy sample, $`\epsilon`$ as a random sample from a standard Gaussian distribution, and $`\epsilon_\theta(\cdot, \cdot, \cdot)`$ as a pretrained diffusion model that predicts the noise in the input. In the image editing task, $`\mathbf{x_{src}^{t}}`$ and $`\mathbf{x_{src}^{t}}`$ are used to denote the source and target samples, while $`c_{src}`$ and $`c_{tgt}`$ represent the source and target text prompts, respectively.
+Distillation sampling parameterizes the target content (e.g., images) and optimizes the parameters using the gradient of the distillation loss function $\nabla_{x^0} L$. In this assignment, we denote $`c`$ as a text prompt, $`\mathbf{x^{t}}`$ as a noisy sample, $`\epsilon`$ as a random sample from a standard Gaussian distribution, and $`\epsilon_\theta(\cdot, \cdot, \cdot)`$ as a pretrained diffusion model that predicts the noise in the input. In the image editing task, $`\mathbf{x_{src}^{t}}`$ and $`\mathbf{x_{tgt}^{t}}`$ are used to denote the source and target samples, while $`c_{src}`$ and $`c_{tgt}`$ represent the source and target text prompts, respectively.
 
 We provide text prompts and source images for generating and editing images. Change the `$HOME` prefix in image paths to your directory. For inference, use the `data/prompt_img_pairs.json`, which contains test prompts and source images. For each task, implement the loss function in `guidance/sd.py`. Use a fixed guidance scale for each task: 25 for SDS and 7.5 for PDS.
 
@@ -64,7 +64,7 @@ In this task, you will generate images using SDS. First, initialize latent $\mat
 
 $$
 \begin{align*} 
-\nabla_{x^{0}} L_{sds}= \mathbb{E}_ {t, \epsilon} \left[ \epsilon_\theta(\mathbf{x^{t}}, c, t) - \epsilon \right].
+\nabla_{x^{0}} L_{sds}= \mathbb{E}_ {t, \epsilon} \left[ \lVert \epsilon_\theta(\mathbf{x^{t}}, c, t) - \epsilon \rVert^2 \right].
 \end{align*}
 $$
 
@@ -78,7 +78,7 @@ python main.py --prompt "{$PROMPT}" --loss_type sds --guidance_scale 25
 
 Refer to `data/prompt_img_pairs.json` for `prompt`.
 
-Implement `get_sds_loss()` in `guidance/sd.py`. The function receives the latent image $\mathbf{x^{t}}$, a randomly sampled timestep $t$, and `guidance_scale` used for the Classifier Free Guidance weight ([CFG](https://github.com/KAIST-Visual-AI-Group/CS492-Assignment_Diffusion-Models/blob/assn1_ddpm/README.md#forward-process)). The function should return the computed loss of SDS. 
+Implement `get_sds_loss()` in `guidance/sd.py`. The function receives the latent image $\mathbf{x^{t}}$, text embedding $c$, and optionally, `guidance_scale` used for the Classifier Free Guidance weight ([CFG](https://github.com/KAIST-Visual-AI-Group/CS492-Assignment_Diffusion-Models/blob/assn1_ddpm/README.md#forward-process)). The function should return the computed loss of SDS. 
 
 ## Task 2: Posterior Distillation Sampling (PDS)
 
@@ -106,7 +106,7 @@ PDS computes the following loss to match the stocastic latents of source and tar
 
 $$
 \begin{align*} 
-\nabla_{x_{tgt}^0} L_{pds} &= \mathbb{E}_ {t, \epsilon^t, \epsilon^{t-1}} \left[ \tilde{z}^t (x_{src}^0, c_{src}, \epsilon_\theta) - \tilde{z}^t(x_{tgt}^0, c_{tgt}, \epsilon_\theta) \right].
+\nabla_{x_{tgt}^0} L_{pds} &= \mathbb{E}_ {t, \epsilon^t, \epsilon^{t-1}} \left[ \lVert \tilde{z}^t (x_{src}^0, c_{src}, \epsilon_\theta) - \tilde{z}^t(x_{tgt}^0, c_{tgt}, \epsilon_\theta) \rVert^2 \right].
 \end{align*}
 $$
 
@@ -130,7 +130,7 @@ Variational Score Distillation (VSD) in ProlificDreamer aims to improve the samp
 
 $$
 \begin{align*} 
-\nabla_{x^{0}} L_{vsd}= \mathbb{E}_ {t, \epsilon} \left[ \epsilon_\theta(\mathbf{x^{t}}, c, t) - \epsilon_\phi(\mathbf{x^{t}}, c, t) \right].
+\nabla_{x^{0}} L_{vsd}= \mathbb{E}_ {t, \epsilon} \left[ \lVert \epsilon_\theta(\mathbf{x^{t}}, c, t) - \epsilon_\phi(\mathbf{x^{t}}, c, t) \rVert^2 \right].
 \end{align*}
 $$
 
