@@ -70,15 +70,20 @@ def run(args):
         
         tgt_embeddings = model.get_text_embeds(args.edit_prompt)
         edit_embeddings = torch.cat([uncond_embeddings, tgt_embeddings])
-    
-    # Initialize latents and optimizer
-    latents = nn.Parameter(
-        torch.randn(
-            1, 4, 64, 64, 
-            device=device, 
-            dtype=args.precision,
+
+        # Initialize latents with source images
+        latents = src_latents.clone().detach().requires_grad_(True)
+        
+    else:
+        # Initialize latents with random Gaussian for generation
+        latents = nn.Parameter(
+            torch.randn(
+                1, 4, 64, 64, 
+                device=device, 
+                dtype=args.precision,
+            )
         )
-    )
+    
     optimizer = torch.optim.AdamW([latents], lr=1e-1, weight_decay=0)
     scheduler = get_cosine_schedule_with_warmup(optimizer, 100, int(steps*1.5))
 
