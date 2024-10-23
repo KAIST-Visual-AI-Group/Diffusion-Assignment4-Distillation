@@ -4,7 +4,7 @@
   </h1>
   <p>
     <a href=https://mhsung.github.io/kaist-cs492d-fall-2024/ target="_blank"><b>KAIST CS492(D): Diffusion Models and Their Applications (Fall 2024)</b></a><br>
-    Programming Assignment 5
+    Programming Assignment
   </p>
 </div>
 
