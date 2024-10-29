@@ -157,6 +157,7 @@ python eval.py --fdir1 {$FDIR}
 </br>
 
 - [ ] Code
+- [ ] PDF file
       
 **Task 1**
 - [ ] CLIP score evaluation `eval.json` (output of `eval.py`)
