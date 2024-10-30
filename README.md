@@ -26,6 +26,7 @@ Score Distillation Sampling (SDS) is a technique used in generative models, part
 ## Setup
 ```
 conda create -n cs492d python=3.8
+conda activate cs492d 
 pip install -r requirements.txt
 ```
 Install PyTorch with your CUDA version. [PyTorch Previous Versions](https://pytorch.org/get-started/previous-versions/).
