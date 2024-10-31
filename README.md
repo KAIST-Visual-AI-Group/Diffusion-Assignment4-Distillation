@@ -65,7 +65,7 @@ In this task, you will generate images using SDS. First, initialize latent $\mat
 
 $$
 \begin{align*} 
-\nabla_{x^{0}} L_{sds}= \mathbb{E}_ {t, \epsilon} \left[ \lVert \epsilon_\theta(\mathbf{x^{t}}, c, t) - \epsilon \rVert^2 \right].
+\nabla_{x^{0}} L_{sds}= \mathbb{E}_ {t, \epsilon} \left[ ( \epsilon_\theta(\mathbf{x^{t}}, c, t) - \epsilon ) \right].
 \end{align*}
 $$
 
@@ -107,7 +107,7 @@ PDS computes the following loss to match the stocastic latents of source and tar
 
 $$
 \begin{align*} 
-\nabla_{x_{tgt}^0} L_{pds} &= \mathbb{E}_ {t, \epsilon^t, \epsilon^{t-1}} \left[ \lVert \tilde{z}^t (x_{src}^0, c_{src}, \epsilon_\theta) - \tilde{z}^t(x_{tgt}^0, c_{tgt}, \epsilon_\theta) \rVert^2 \right].
+\nabla_{x_{tgt}^0} L_{pds} &= \mathbb{E}_ {t, \epsilon^t, \epsilon^{t-1}} \left[ ( \tilde{z}^t (x_{src}^0, c_{src}, \epsilon_\theta) - \tilde{z}^t(x_{tgt}^0, c_{tgt}, \epsilon_\theta) ) \right].
 \end{align*}
 $$
 
@@ -131,7 +131,7 @@ Variational Score Distillation (VSD) in ProlificDreamer aims to improve the samp
 
 $$
 \begin{align*} 
-\nabla_{x^{0}} L_{vsd}= \mathbb{E}_ {t, \epsilon} \left[ \lVert \epsilon_\theta(\mathbf{x^{t}}, c, t) - \epsilon_\phi(\mathbf{x^{t}}, c, t) \rVert^2 \right].
+\nabla_{x^{0}} L_{vsd}= \mathbb{E}_ {t, \epsilon} \left[ ( \epsilon_\theta(\mathbf{x^{t}}, c, t) - \epsilon_\phi(\mathbf{x^{t}}, c, t) ) \right].
 \end{align*}
 $$
 
